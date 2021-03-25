@@ -57,53 +57,53 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
   Not gonna lie, I'm very interested to see how people break my bot script.
 
 ## Setup
-  1. ### Setup the GPS Host PC's **IT'S _VERY_ IMPORTANT YOU DO THIS**
-    The Turtle requires a GPS connection to locate it's position in the world, which is then used to navigate to other coordinates.
+### 1. Setup the GPS Host PC's
+  The Turtle requires a GPS connection to locate it's position in the world, which is then used to navigate to other coordinates.
 
-    Here's the [original instructions](https://wiki.computercraft.cc/GPS_Hosts) I used to build my GPS station.
+  Here's the [original instructions](https://wiki.computercraft.cc/GPS_Hosts) I used to build my GPS station. That link is also where the image below came from, it's their example of how to build a GPS host setup.
+
+  ![GPS Cluster example from ComputerCraft wiki](https://wiki.computercraft.cc/images/thumb/d/d5/Gps-cluster.jpg/400px-Gps-cluster.jpg)
     
-    Their example for a setup:
-    ![GPS Cluster example from ComputerCraft wiki](https://wiki.computercraft.cc/images/thumb/d/d5/Gps-cluster.jpg/400px-Gps-cluster.jpg)
-    *Src is the wiki link above*
+  My Example:
+  
+  ![GPS Cluster example from ComputerCraft wiki](docs/images/gpsHostsLayout.png)
     
-    My Example:
-    ![GPS Cluster example from ComputerCraft wiki](docs/images/gpsHostsLayout.png)
+  After you have setup the cluster, on each computer you'll have to edit the startup script. On each host computer, 
+  1. edit startup.lua
+  2. paste ```shell.run "gps host <x coordinate> <y coordinate> <z coordinate>"``` and replace the X Y Z coordinates with the **_Exact_** coordinate of the computer you're editing the startup file.
+    ```Ex: shell.run "gps host 140 77 -1386"```
+    *PS: When looking at the computer block, press F3, check the top right for "Targeted Block" and use those coordinates. The coordinates will be different for each computer!*
     
-    After you have setup the cluster, on each computer you'll have to edit the startup script. On each host computer, 
-    1. edit startup.lua
-    2. paste ```shell.run "gps host <x coordinate> <y coordinate> <z coordinate>"``` and replace the X Y Z coordinates with the **_Exact_** coordinate of the computer you're editing the startup file.
-      ```Ex: shell.run "gps host 140 77 -1386"```
-      *PS: When looking at the computer block, press F3, check the top right for "Targeted Block" and use those coordinates. The coordinates will be different for each computer!*
-  2. ### Find a location to setup your Diggy Boi (Still not 100% on that name..)
-    Setup it's starting location with the necessary chests and speaker blocks.
-    The bot digs in a "Clockwise" motion, always starting from bottom left and ending at the top right. So you'll want to place the bot just like in the example below.
-    Example of a 3x3 digging area:
+### 2. Find a location to setup your Diggy Boi (Still not 100% on that name..)
+  Setup it's starting location with the necessary chests and speaker blocks.
+  The bot digs in a "Clockwise" motion, always starting from bottom left and ending at the top right. So you'll want to place the bot just like in the example below.
+  Example of a 3x3 digging area:
 
-    S: Start block
-    [ ][ ][ ]
-    [ ][ ][ ]
-    [S][ ][ ]
+  S: Start block
+  [ ][ ][ ]
+  [ ][ ][ ]
+  [S][ ][ ]
 
-    Then you'll add the chests in the proper area **_behind_** where the bot starting. I'm using a hopper under the chest as I know even with a large chest, it will get full very quickly.
-    Then refueling depot (chest) will be placed 1 block above the deposit chest (Make sure to fill it with plenty of fuel! Any burnable fuel source will work.), with the speaker block being to the **_right_** of the chest but on the same axis as the bot. (Difficult to explain easily, see image for a complete idea of the layout)
-    ![A picture of a Minecraft ComputerCraft Turtle bot next to two diamond chests. Above it is another diamond chest, and a speaker block. The landscape surrounding the turtle is of sand and sandstone with some Andesenite](docs/images/turtleMiningHomeLayout.png)
+  Then you'll add the chests in the proper area **_behind_** where the bot starting. I'm using a hopper under the chest as I know even with a large chest, it will get full very quickly.
+  Then refueling depot (chest) will be placed 1 block above the deposit chest (Make sure to fill it with plenty of fuel! Any burnable fuel source will work.), with the speaker block being to the **_right_** of the chest but on the same axis as the bot. (Difficult to explain easily, see image for a complete idea of the layout)
+  ![A picture of a Minecraft ComputerCraft Turtle bot next to two diamond chests. Above it is another diamond chest, and a speaker block. The landscape surrounding the turtle is of sand and sandstone with some Andesenite](docs/images/turtleMiningHomeLayout.png)
 
-  3. ### Start the bot, edit, and then run the script
-    First you'll want to edit the scripts grid variables, here's an example to help.
-    Also when you're editing the height value, remember it doubles. So a height of 4 will mean the bot digs 8 blocks down, I do plan to fix this.
-      Y  Y  Y
-    X[ ][ ][ ]
-    X[ ][ ][ ]
-    X[S][ ][ ]
+### 3. Start the bot, edit, and then run the script
+  First you'll want to edit the scripts grid variables, here's an example to help.
+  Also when you're editing the height value, remember it doubles. So a height of 4 will mean the bot digs 8 blocks down, I do plan to fix this.
+    Y  Y  Y
+  X[ ][ ][ ]
+  X[ ][ ][ ]
+  X[S][ ][ ]
 
-    local column = 5  -- Y
-    local row = 5     -- X
-    local height = 20 -- Z - A height of 10 means the bot will dig 20 blocks down.
+  local column = 5  -- Y
+  local row = 5     -- X
+  local height = 20 -- Z - A height of 10 means the bot will dig 20 blocks down.
 
-    Setting up the column and row this way in the script was done on purpose. I wanted the values to be persistent through picking up and placing the turtle so that you don't have to keep retyping in the X Y and Z values. This can be done using the file system and writing/ reading a config file but that's something for the future as it was simpler to use constant variables.
+  Setting up the column and row this way in the script was done on purpose. I wanted the values to be persistent through picking up and placing the turtle so that you don't have to keep retyping in the X Y and Z values. This can be done using the file system and writing/ reading a config file but that's something for the future as it was simpler to use constant variables.
 
-    Save and exit and then run the script.
-    Once the script is running it will prompt when it figures out the direction it is facing. Then it will begin it's mining operation!
+  Save and exit and then run the script.
+  Once the script is running it will prompt when it figures out the direction it is facing. Then it will begin it's mining operation!
 
 
 Extra links: Any information is useful! Especially the old stuff.
