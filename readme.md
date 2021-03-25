@@ -49,10 +49,10 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
     I have yet to test this but for the time being that means that the digging height is doubled and any odd numbered height values will mine one extra block.
 
 ### Possible issues one may come across
-  - Lack of persistence, meaning if there's nothing loading the chunck the bot is mining in, it will stop mining and cease execution of the script.
-    ###### Fix: Replace the bot at the home block and restart the script.
+  - Lack of persistence: Meaning if there's nothing loading the chunk the bot is mining in, it will stop mining, and cease execution of the script.
+    ###### Current Fix: Replace the bot at the home block and restart the script.
   - Not placing chests in the right areas: please don't do that to the poor bots, they'll forever be looking for that chest.. :(
-    ###### Fix: See setup for how to place the chests!
+    ###### Current Fix: See setup for how to place the chests!
   
   Not gonna lie, I'm very interested to see how people break my bot script.
 
