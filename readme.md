@@ -68,7 +68,7 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
   
   ![GPS Cluster example from ComputerCraft wiki](docs/images/gpsHostsLayout.png)
     
-  After you have setup the cluster, on each computer you'll have to edit the startup script. On each host computer, 
+  After you have setup the cluster, on each computer you'll have to edit the startup script. So, for each host computer you must: 
   1. edit startup.lua
   2. paste ```shell.run "gps host <x coordinate> <y coordinate> <z coordinate>"``` and replace the X Y Z coordinates with the **_Exact_** coordinate of the computer you're editing the startup file.
     ```Ex: shell.run "gps host 140 77 -1386"```
@@ -76,7 +76,7 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
     
 ### 2. Find a location to setup your Diggy Boi (Still not 100% on that name..)
   Setup it's starting location with the necessary chests and speaker blocks.
-  The bot digs in a "Clockwise" motion, always starting from bottom left and ending at the top right. So you'll want to place the bot just like in the example below.
+  The bot digs in a "Zig-Zag Clockwise" motion, always starting from bottom left and ending at the top right. So you'll want to place the bot just like in the example below.
   Example of a 3x3 digging area:
   ```
   S: Start block
@@ -85,13 +85,13 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
   [S][ ][ ]
   ```
 
-  Then you'll add the chests in the proper area **_behind_** where the bot starting. I'm using a hopper under the chest as I know even with a large chest, it will get full very quickly.
-  Then refueling depot (chest) will be placed 1 block above the deposit chest (Make sure to fill it with plenty of fuel! Any burnable fuel source will work.), with the speaker block being to the **_right_** of the chest but on the same axis as the bot. (Difficult to explain easily, see image for a complete idea of the layout)
+  Then you'll add the chests in the proper area **_behind_** where the bot starting. I'm using a hopper under the chest since I know that even with a large chest, it will get full very quickly.
+  Then the refueling depot (chest) will be placed 1 block above the deposit chest (Make sure to fill it with plenty of fuel! Any burnable fuel source will work.), with the speaker block being to the **_right_** of the chest but on the same axis as the bot. (Difficult to explain, see image for a complete idea of the layout)
   ![A picture of a Minecraft ComputerCraft Turtle bot next to two diamond chests. Above it is another diamond chest, and a speaker block. The landscape surrounding the turtle is of sand and sandstone with some Andesenite](docs/images/turtleMiningHomeLayout.png)
 
 ### 3. Start the bot, edit, and then run the script
-  First you'll want to edit the scripts grid variables, here's an example to help.
-  Also when you're editing the height value, remember it doubles. So a height of 4 will mean the bot digs 8 blocks down, I do plan to fix this.
+  First you'll want to edit the script's grid variables, here's an example to help.
+  *Also, when you're editing the height value, remember that it doubles. So a height of 4 will mean the bot digs 8 blocks down, I do plan to fix this..*
   ```
     Y  Y  Y
   X[ ][ ][ ]
@@ -103,10 +103,10 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
   local height = 20 -- Z - A height of 10 means the bot will dig 20 blocks down.
   ```
 
-  Setting up the column and row this way in the script was done on purpose. I wanted the values to be persistent through picking up and placing the turtle so that you don't have to keep retyping in the X Y and Z values. This can be done using the file system and writing/ reading a config file but that's something for the future as it was simpler to use constant variables.
+  Setting up the column and row this way in the script was done on purpose. I wanted the values to be persistent through picking up and placing the turtle so that you don't have to keep retyping in the X Y and Z values. This could also be done using the file system and writing/ reading a config file, but that's something for the future. It was just easier and simpler to use constant variables for the time being.
 
-  Save and exit and then run the script.
-  Once the script is running it will prompt when it figures out the direction it is facing. Then it will begin it's mining operation!
+  Save, exit, and then run the script.
+  Once the script is running it will prompt you when it figures out the direction it is facing. Then it will begin it's mining operation!
 
 
 Extra links: Any information is useful! Especially the old stuff.
@@ -119,6 +119,7 @@ Extra links: Any information is useful! Especially the old stuff.
   - Diggy Boi 212
   - Tunneling Excavating Digging Bot                      - TED Bot
   - Personal Autonomous Mining Bot                        - PAM Bot, this is an option if you want a friend for your TED bot!
+  
   ##### Figured I'd make some names for a friend who really likes Crabs, Frogs, and Shrimp.
   - Cave Removal Autonomous Bot                           - CRAB, scuttles around while digging :crab:!
   - Solo Harvesting Retrieval Mining Prospector           - SHRMP, he prefers solo missions. Mission's where he can secretly eat coal without the other bots seeing.
