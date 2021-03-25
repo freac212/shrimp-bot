@@ -78,11 +78,12 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
   Setup it's starting location with the necessary chests and speaker blocks.
   The bot digs in a "Clockwise" motion, always starting from bottom left and ending at the top right. So you'll want to place the bot just like in the example below.
   Example of a 3x3 digging area:
-
+  ```
   S: Start block
   [ ][ ][ ]
   [ ][ ][ ]
   [S][ ][ ]
+  ```
 
   Then you'll add the chests in the proper area **_behind_** where the bot starting. I'm using a hopper under the chest as I know even with a large chest, it will get full very quickly.
   Then refueling depot (chest) will be placed 1 block above the deposit chest (Make sure to fill it with plenty of fuel! Any burnable fuel source will work.), with the speaker block being to the **_right_** of the chest but on the same axis as the bot. (Difficult to explain easily, see image for a complete idea of the layout)
@@ -91,6 +92,7 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
 ### 3. Start the bot, edit, and then run the script
   First you'll want to edit the scripts grid variables, here's an example to help.
   Also when you're editing the height value, remember it doubles. So a height of 4 will mean the bot digs 8 blocks down, I do plan to fix this.
+  ```
     Y  Y  Y
   X[ ][ ][ ]
   X[ ][ ][ ]
@@ -99,6 +101,7 @@ Additional note: The version of the mod I'm using is [CC: Tweaked v. 1.95.2](htt
   local column = 5  -- Y
   local row = 5     -- X
   local height = 20 -- Z - A height of 10 means the bot will dig 20 blocks down.
+  ```
 
   Setting up the column and row this way in the script was done on purpose. I wanted the values to be persistent through picking up and placing the turtle so that you don't have to keep retyping in the X Y and Z values. This can be done using the file system and writing/ reading a config file but that's something for the future as it was simpler to use constant variables.
 
